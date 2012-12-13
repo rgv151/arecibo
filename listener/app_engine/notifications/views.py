@@ -57,7 +57,7 @@ def notifications_send(request):
 
     for user_id, holder in holders.items():
         try:
-            send_error_email(holder)
+            #send_error_email(holder)
             for notification in holder.notifs:
                 notification.tried = True
                 notification.completed = True

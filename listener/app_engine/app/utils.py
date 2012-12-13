@@ -24,8 +24,14 @@ def safe_int(key, result=None):
         return result
 
 def render_plain(msg):
-    return HttpResponse(msg, mimetype="text/plain")
+    response = HttpResponse(msg, mimetype="text/plain")
+    #response['Access-Control-Allow-Origin'] = '*'
+    #response['Access-Control-Allow-Methods'] = 'POST'
+    return response
 
+def render_html(msg):
+    return HttpResponse(msg, mimetype="text/html")
+    
 def render_json(view_func):
     def wrapper(*args, **kwargs):
         data = view_func(*args, **kwargs)
